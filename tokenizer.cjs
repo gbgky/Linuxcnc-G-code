@@ -253,6 +253,20 @@ class Tokenizer {
             if (this.peek() === '>') param += this.nextChar();
             return this.createToken(TokenType.Parameter, param);
         } else if (this.peek() === '#') {
+
+            // Handle ##<var> indirect variables
+            if (this.peek(1) === '#' && this.peek(2) === '<') {
+                let param = this.nextChar(); // first #
+                param += this.nextChar();    // second #
+                param += this.nextChar();    // '<'
+                while (!this.eof() && this.peek() !== '>' && !/\r|\n/.test(this.peek())) {
+                    param += this.nextChar();
+                }
+                if (this.peek() === '>') param += this.nextChar();
+                return this.createToken(TokenType.Parameter, param);
+            }
+
+            // Handle #<var> and #123
             let param = this.nextChar();
             if (this.peek() === '<') {
                 param += this.nextChar();
