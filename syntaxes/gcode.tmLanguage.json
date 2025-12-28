@@ -47,12 +47,16 @@
 	  },
 	  {
 		"name": "constant.numeric.local.gcode",
-		"match": "(?i)#<[\\-\\w.]+(?:\\[[\\-\\w.]+\\])?[\\-\\w.]*>",
+		"match": "(?i)#?<[\\-\\w.]+(?:\\[[\\-\\w.]+\\])?[\\-\\w.]*>",
 		"captures": {
 		  "0": {
 			"name": "constant.numeric.local"
 		  }
 		}
+	  },	  	  
+	  {
+		"name": "variable.other.pointer.gcode",
+		"match": "(?i)##<[\\-\\w.]+(?:\\[[\\-\\w.]+\\])?[\\-\\w.]*>"
 	  },
 	  {
 		"name": "support.type.o-word.gcode",
