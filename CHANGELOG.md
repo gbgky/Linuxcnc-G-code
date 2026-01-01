@@ -1,6 +1,34 @@
 # Changelog
 
-All notable changes to this project will be documented in this file. 
+All notable changes to this project will be documented in this file.
+
+## [1.0.7] - 2025-12-29
+
+### Complete Indirect Variable Dereferencing Support
+
+- **Formatter & Parser Support:**
+  - Updated tokenizer to recognize and preserve `##` as a single token for indirect variable dereferencing.
+  - Formatter now correctly handles `##<varname>`, `##<_globalvar>`, and `##100` without adding spaces between the hash symbols.
+  - Full support for all three parameter types: numbered (`##100`), local (`##<var>`), and global (`##<_var>`).
+
+- **Enhanced Syntax Highlighting:**
+  - Added distinct color highlighting for the dereferencing operator (first `#` in `##`).
+  - First `#` is colored as an operator (same as `EQ`, `NE`, etc.) to visually indicate dereferencing.
+  - Second `#` and the variable name maintain their original parameter type colors.
+  - Consistent highlighting across all parameter types.
+
+- **Documentation:**
+  - Updated README with examples of indirect variable dereferencing syntax.
+  - Added `##<varname>` to value expressions documentation.
+  - Thanks to @gbgky for reporting the formatting issue and contributing the initial syntax highlighting fix!
+
+## [1.0.6] - 2025-12-29
+
+### Initial Indirect Variable Dereferencing (Syntax Highlighting Only)
+
+- **Syntax Highlighting:**
+  - Added basic support for `##<_globalvar>` pattern recognition in syntax highlighting.
+  - Thanks to @gbgky for the contribution!
 
 ## [1.0.5] - 2025-01-27
 
